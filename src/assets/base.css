@@ -1,93 +1,112 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* color palette */
 :root {
     /* Light mode colors */
     --color-primary: #0079ff;
     --color-secondary: #697c9a;
     --color-tertiary: #4b6a9b;
-    --color-heading: #2b3442;
-    --color-background: #f6f8ff;
-    --color-surface: #fefefe;
+    --color-heading-light: #2b3442;
+    --color-background-light: #f6f8ff;
+    --color-surface-light: #fefefe;
+    --color-logo-light: #222731;
 
     /* Dark mode colors */
-    --color-text-light: #ffffff;
+    --color-text-white: #ffffff;
     --color-heading-dark: #ffffff;
     --color-background-dark: #141d2f;
     --color-surface-dark: #1e2a47;
+    --color-logo-dark: #ffffff;
+}
+
+/* semantic variables for this project */
+:root {
+    /*--color-text: var(--color-tertiary);*/
+    /*--color-background: var(--color-background-light);*/
+    /*--color-foreground: var(--color-surface-light);*/
+    /*--color-logo: var(--color-logo-light);*/
+    /*--color-heading: var(--color-heading-light);*/
 
     /*    Fonts */
     --font-size: 13px;
-    --font-family: 'Space Mono', monospace;
-    --line-height-base: auto;
+
 
     /*    Borders */
     --border-radius-outter: 15px;
     --border-radius-inner: 10px;
 
+    /* Shadows */
+    --box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+
     /*    Spacing */
     --padding-container: 30px 24px 80px;
 }
 
-/* semantic variables for this project */
-:root {
-    --color-background: var(--color-background);
-    --color-text: var(--color-tertiary);
-
-    /*--color-background: var(--vt-c-white);*/
-    /*--color-background-soft: var(--vt-c-white-soft);*/
-    /*--color-background-mute: var(--vt-c-white-mute);*/
-
-    /*--color-border: var(--vt-c-divider-light-2);*/
-    /*--color-border-hover: var(--vt-c-divider-light-1);*/
-
-    /*--color-heading: var(--vt-c-text-light-1);*/
-    /*--color-text: var(--vt-c-text-light-1);*/
-
-    /*--section-gap: 160px;*/
-}
 
 @media (prefers-color-scheme: dark) {
     :root {
-        /*--color-background: var(--vt-c-black);*/
-        /*--color-background-soft: var(--vt-c-black-soft);*/
-        /*--color-background-mute: var(--vt-c-black-mute);*/
-
-        /*--color-border: var(--vt-c-divider-dark-2);*/
-        /*--color-border-hover: var(--vt-c-divider-dark-1);*/
-
-        /*--color-heading: var(--vt-c-text-dark-1);*/
-        /*--color-text: var(--vt-c-text-dark-2);*/
+        --color-background: var(--color-background-dark);
+        --color-text: var(--color-text-white);
+        --color-foreground: var(--color-surface-dark);
+        --color-logo: var(--color-logo-dark);
+        --color-heading: var(--color-heading-dark);
     }
 }
 
-/**,*/
-/**::before,*/
-/**::after {*/
-/*  box-sizing: border-box;*/
-/*  margin: 0;*/
-/*  font-weight: normal;*/
-/*}*/
+/* 768px */
+@media (min-width: 45em) {
+    :root {
+        --font-size: 15px;
+        /*--padding-container: ;*/
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
 
 body {
+    --color-text: var(--color-tertiary);
+    --color-background: var(--color-background-light);
+    --color-foreground: var(--color-surface-light);
+    --color-logo: var(--color-logo-light);
+    --color-heading: var(--color-heading-light);
+
     min-height: 100vh;
+    font-family: "Space Mono", monospace;
+    font-size: var(--font-size);
     color: var(--color-text);
-    background: var(--color-background);
-    /*transition: color 0.5s,*/
-    /*background-color 0.5s;*/
-    /*line-height: 1.6;*/
-    /*font-family: Inter,*/
-    /*-apple-system,*/
-    /*BlinkMacSystemFont,*/
-    /*'Segoe UI',*/
-    /*Roboto,*/
-    /*Oxygen,*/
-    /*Ubuntu,*/
-    /*Cantarell,*/
-    /*'Fira Sans',*/
-    /*'Droid Sans',*/
-    /*'Helvetica Neue',*/
-    /*sans-serif;*/
-    /*font-size: 15px;*/
-    /*text-rendering: optimizeLegibility;*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*-moz-osx-font-smoothing: grayscale;*/
+    transition: color .5s, background-color .5s;
+    line-height: normal;
+    background-color: var(--color-background);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    overflow-y: hidden;
+}
+
+/*body main.dark-mode {*/
+/*    color: orangered;*/
+/*    !*--color-background: orangered;*!*/
+/*}*/
+
+/*body main.dark-mode {*/
+/*    --color-background: var(--color-background-dark);*/
+/*    --color-text: var(--color-text-white);*/
+/*    --color-foreground: var(--color-surface-dark);*/
+/*    --color-logo: var(--color-logo-dark);*/
+/*    --color-heading: var(--color-heading-dark);*/
+
+/*    background-color: var(--color-background);*/
+/*    color: var(--color-text-white);*/
+/*}*/
+
+body:has(main.dark-mode) {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-white);
+    --color-foreground: var(--color-surface-dark);
+    --color-logo: var(--color-logo-dark);
+    --color-heading: var(--color-heading-dark);
+
+    background-color: var(--color-background);
+    color: var(--color-text-white);
 }

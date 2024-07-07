@@ -15,5 +15,8 @@
 </template>
 
 <style scoped>
+.user-card {
+  background: var(--color-foreground);
+}
 
 </style>
