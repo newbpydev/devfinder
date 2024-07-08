@@ -47,8 +47,10 @@ defineEmits<{
     font-weight: bold;
     transition: all .2s ease;
 
+
     & span {
       letter-spacing: 2.5px;
+      transition: all .2s ease;
     }
 
     &:hover {
@@ -70,8 +72,6 @@ defineEmits<{
     &.dark-mode:hover .icon * {
       fill: #90A4D4;
     }
-
-
   }
 }
 </style>
