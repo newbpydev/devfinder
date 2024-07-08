@@ -31,6 +31,7 @@ const handleThemeChange = () => {
 
 <style scoped>
 .main {
+  margin: 0 auto;
 
 }
 

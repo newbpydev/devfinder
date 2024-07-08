@@ -55,7 +55,6 @@
 @media (min-width: 45em) {
     :root {
         --font-size: 15px;
-        /*--padding-container: ;*/
     }
 }
 
@@ -83,22 +82,6 @@ body {
 
     overflow-y: hidden;
 }
-
-/*body main.dark-mode {*/
-/*    color: orangered;*/
-/*    !*--color-background: orangered;*!*/
-/*}*/
-
-/*body main.dark-mode {*/
-/*    --color-background: var(--color-background-dark);*/
-/*    --color-text: var(--color-text-white);*/
-/*    --color-foreground: var(--color-surface-dark);*/
-/*    --color-logo: var(--color-logo-dark);*/
-/*    --color-heading: var(--color-heading-dark);*/
-
-/*    background-color: var(--color-background);*/
-/*    color: var(--color-text-white);*/
-/*}*/
 
 body:has(main.dark-mode) {
     --color-background: var(--color-background-dark);
