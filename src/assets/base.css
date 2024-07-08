@@ -81,7 +81,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     overflow-y: hidden;
+
+    & input {
+        color: var(--color-logo-light);
+        caret-color: var(--color-primary);
+        line-height: 2.5;
+    }
+
+    & input::placeholder {
+        color: var(--color-tertiary);
+    }
 }
+
 
 body:has(main.dark-mode) {
     --color-background: var(--color-background-dark);
@@ -90,6 +101,14 @@ body:has(main.dark-mode) {
     --color-logo: var(--color-logo-dark);
     --color-heading: var(--color-heading-dark);
 
-    background-color: var(--color-background);
-    color: var(--color-text-white);
+    /*background-color: var(--color-background);*/
+    /*color: var(--color-text-white);*/
+
+    & input {
+        color: var(--color-text-white);
+
+        &::placeholder {
+            color: var(--color-text-white);
+        }
+    }
 }
