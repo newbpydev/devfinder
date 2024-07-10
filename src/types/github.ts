@@ -29,6 +29,6 @@ export interface Github {
   public_gists: number | null;
   followers: number | null;
   following: number | null;
-  created_at: string | null;
+  created_at: string;
   updated_at: string | null;
 }

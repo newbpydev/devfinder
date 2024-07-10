@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, type Ref } from 'vue'
+import { computed } from 'vue'
 
 import LocationIcon from '@/assets/images/icon-location.svg'
 import WebsiteIcon from '@/assets/images/icon-website.svg'
@@ -8,15 +8,19 @@ import CompanyIcon from '@/assets/images/icon-company.svg'
 import type { Github } from '@/types/github'
 
 const { user } = defineProps<{
-  user: Ref<Github | undefined>
+  user: Github | undefined
+  // user: Ref<Github | undefined>
 }>()
+
+console.log({ user })
 
 const defaultBioDesc =
   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
-  if (user && user.value && user.value.created_at) {
-    const date = new Date(user.value.created_at)
+  console.log(!!user?.created_at)
+  if (user) {
+    const date = new Date(user.created_at)
     const formattedDate = new Intl.DateTimeFormat('en-US', {
       day: 'numeric',
       month: 'short',
@@ -28,6 +32,7 @@ const joinedDate = computed(() => {
     const day = formattedDate[1]
     const month = formattedDate[0]
     const year = formattedDate[2]
+    console.log(day, month, year)
     return `${day} ${month} ${year}`
   } else {
     return null
@@ -123,6 +128,7 @@ const joinedDate = computed(() => {
 
   & .header {
     display: flex;
+    align-items: center;
     gap: 1.9rem;
     margin-bottom: 3.3rem;
 
@@ -131,6 +137,10 @@ const joinedDate = computed(() => {
       width: 7rem;
       height: auto;
       border-radius: 99rem;
+
+      @media (min-width: 48em) {
+        width: 11.7rem;
+      }
     }
 
     & .info {
@@ -141,15 +151,27 @@ const joinedDate = computed(() => {
           font-size: 1.6rem;
           font-weight: bold;
           color: var(--color-heading);
+
+          @media (min-width: 48em) {
+            font-size: 2.6rem;
+          }
         }
 
         & p {
           color: var(--color-primary);
+
+          @media (min-width: 48em) {
+            font-size: 1.6rem;
+          }
         }
       }
 
       & .created-date {
         color: var(--color-date);
+
+        @media (min-width: 48em) {
+
+        }
       }
     }
   }

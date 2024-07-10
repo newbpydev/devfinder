@@ -18,15 +18,15 @@ const handleThemeChange = () => {
   isDark.value = !isDark.value
 }
 
-const handleSearch = async (user: string) => {
-  await getUser(user)
+const handleSearch = async (name: string) => {
+  await getUser(name)
 }
 </script>
 
 <template>
   <main :class="['main container', isDark ? 'dark-mode' : '']">
     <TheHeader :is-dark="isDark" @theme-change="handleThemeChange" />
-    <SearchForm @search="handleSearch" :is-loading="isLoading" />
+    <SearchForm :is-loading="isLoading" @search="handleSearch" />
     <UserCard :key="user ? user.id : 'octocat'" :user="user" />
   </main>
 </template>
