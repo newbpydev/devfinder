@@ -7,12 +7,12 @@ import TwitterIcon from '@/assets/images/icon-twitter.svg'
 import CompanyIcon from '@/assets/images/icon-company.svg'
 import type { Github } from '@/types/github'
 
-
 const { user } = defineProps<{
   user: Ref<Github | undefined>
 }>()
 
-const defaultBioDesc = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+const defaultBioDesc =
+  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
   if (user && user.value && user.value.created_at) {
@@ -21,7 +21,10 @@ const joinedDate = computed(() => {
       day: 'numeric',
       month: 'short',
       year: 'numeric'
-    }).format(date).replace(',', '').split(' ')
+    })
+      .format(date)
+      .replace(',', '')
+      .split(' ')
     const day = formattedDate[1]
     const month = formattedDate[0]
     const year = formattedDate[2]
@@ -35,8 +38,12 @@ const joinedDate = computed(() => {
 <template>
   <article v-if="user" :key="user.id" class="user-card">
     <header class="header">
-      <img :alt="`avatar of ${user.name}`" :src="user.avatar_url ?? ''" :title="user.name ?? ''"
-           class="avatar">
+      <img
+        :alt="`avatar of ${user.name}`"
+        :src="user.avatar_url ?? ''"
+        :title="user.name ?? ''"
+        class="avatar"
+      />
 
       <div class="info">
         <div class="user-name">
@@ -69,21 +76,32 @@ const joinedDate = computed(() => {
     </div>
 
     <footer class="footer">
-      <div :class="['link', !user.location ? 'unavailable' : '' ]">
+      <div :class="['link', !user.location ? 'unavailable' : '']">
         <LocationIcon />
         <span>{{ user.location ?? notAvailable }}</span>
       </div>
-      <a :class="['link', !user.blog ? 'unavailable' : '' ]" :href="user.blog ?? '#'" target="_blank">
+      <a
+        :class="['link', !user.blog ? 'unavailable' : '']"
+        :href="user.blog ?? '#'"
+        target="_blank"
+      >
         <WebsiteIcon />
         <span>{{ !user.blog || user.blog.length === 0 ? notAvailable : user.blog }}</span>
       </a>
-      <a :class="['link', !user.twitter_username ? 'unavailable' : '' ]" :href="user.twitter_username ?? '#'"
-         target="_blank">
+      <a
+        :class="['link', !user.twitter_username ? 'unavailable' : '']"
+        :href="user.twitter_username ?? '#'"
+        target="_blank"
+      >
         <!--      <a  :href="user.twitter_username ? `https:` : '#'" :class="['link', !user.location ? 'unavailable' : '' ]">-->
         <TwitterIcon />
         <span>{{ user.twitter_username ?? notAvailable }}</span>
       </a>
-      <a :class="['link', !user.company ? 'unavailable' : '' ]" :href="user.html_url ?? '#'" target="_blank">
+      <a
+        :class="['link', !user.company ? 'unavailable' : '']"
+        :href="user.html_url ?? '#'"
+        target="_blank"
+      >
         <CompanyIcon />
         <span>{{ user.company ?? notAvailable }}</span>
       </a>
@@ -97,7 +115,7 @@ const joinedDate = computed(() => {
   padding: 3.2rem 2.4rem 4.8rem;
   border-radius: var(--border-radius-outter);
   background: var(--color-foreground);
-  box-shadow: 0 16px 30px -10px rgb(0, 0, 0, .25);
+  box-shadow: 0 16px 30px -10px rgb(0, 0, 0, 0.25);
 
   @media (min-width: 48em) {
     padding: 4rem;
@@ -117,7 +135,7 @@ const joinedDate = computed(() => {
 
     & .info {
       & .user-name {
-        margin-bottom: .6rem;
+        margin-bottom: 0.6rem;
 
         & h1 {
           font-size: 1.6rem;
@@ -127,7 +145,6 @@ const joinedDate = computed(() => {
 
         & p {
           color: var(--color-primary);
-
         }
       }
 
@@ -155,7 +172,7 @@ const joinedDate = computed(() => {
       & .stat {
         display: flex;
         flex-direction: column;
-        gap: .8rem;
+        gap: 0.8rem;
 
         span {
           font-size: 1.1rem;
@@ -185,7 +202,7 @@ const joinedDate = computed(() => {
       }
 
       &.unavailable {
-        opacity: .5;
+        opacity: 0.5;
 
         & svg * {
           fill: var(--color-text);

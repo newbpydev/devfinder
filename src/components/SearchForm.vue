@@ -1,6 +1,9 @@
 <script lang="ts" setup>
-
 import { ref } from 'vue'
+
+defineProps<{
+  isLoading: boolean
+}>()
 
 const emit = defineEmits<{
   search: [value: string]
@@ -16,9 +19,15 @@ const handleSubmit = async () => {
 
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <img alt="search icon" class="search-form__icon" src="/images/icon-search.svg">
-    <input v-model="userName" class="search-form__input" placeholder="Search GitHub username..." type="text">
+    <img alt="search icon" class="search-form__icon" src="/images/icon-search.svg" />
+    <input
+      v-model="userName"
+      class="search-form__input"
+      placeholder="Search GitHub username..."
+      type="text"
+    />
     <button class="search-form__btn" type="submit">Search</button>
+    <p v-if="isLoading">loading</p>
   </form>
 </template>
 
@@ -26,14 +35,14 @@ const handleSubmit = async () => {
 .search-form {
   display: flex;
   align-items: center;
-  padding: .7rem .7rem .7rem 1.6rem;
+  padding: 0.7rem 0.7rem 0.7rem 1.6rem;
   background-color: var(--color-foreground);
   margin-bottom: 1.6rem;
   border-radius: var(--border-radius-outter);
-  box-shadow: 0 16px 30px -10px rgb(0, 0, 0, .25);
+  box-shadow: 0 16px 30px -10px rgb(0, 0, 0, 0.25);
 
   @media (min-width: 48em) {
-    padding: .95rem 1rem .95rem 3.2rem;
+    padding: 0.95rem 1rem 0.95rem 3.2rem;
     margin-bottom: 2.4rem;
   }
 
@@ -41,7 +50,7 @@ const handleSubmit = async () => {
     display: inline-block;
     height: 2rem;
     width: auto;
-    margin-right: .9rem;
+    margin-right: 0.9rem;
 
     @media (min-width: 48em) {
       height: 2.4rem;
@@ -52,7 +61,7 @@ const handleSubmit = async () => {
   & .search-form__input {
     width: 100%;
     line-height: 2.5;
-    margin-right: .7rem;
+    margin-right: 0.7rem;
 
     &:focus {
       outline: none;
@@ -71,10 +80,10 @@ const handleSubmit = async () => {
     padding: 1.25rem 1.6rem;
     background-color: var(--color-primary);
     border-radius: var(--border-radius-inner);
-    transition: all .2s;
+    transition: all 0.2s;
 
     &:hover {
-      background-color: #60ABFF;
+      background-color: #60abff;
     }
 
     @media (min-width: 48em) {
@@ -83,5 +92,4 @@ const handleSubmit = async () => {
     }
   }
 }
-
 </style>

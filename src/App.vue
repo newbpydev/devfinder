@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue'
 import { useOctokit } from '@/composables/useOctokit'
 
 const isDark = ref(false)
-const { getUser, user } = useOctokit()
+const { getUser, user, isLoading } = useOctokit()
 
 onMounted(async () => {
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -26,8 +26,8 @@ const handleSearch = async (user: string) => {
 <template>
   <main :class="['main container', isDark ? 'dark-mode' : '']">
     <TheHeader :is-dark="isDark" @theme-change="handleThemeChange" />
-    <SearchForm @search="handleSearch" />
-    <UserCard :key=" user ? user.id : 'octocat'" :user="user" />
+    <SearchForm @search="handleSearch" :is-loading="isLoading" />
+    <UserCard :key="user ? user.id : 'octocat'" :user="user" />
   </main>
 </template>
 
