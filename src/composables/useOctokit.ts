@@ -1,12 +1,12 @@
 import { Octokit } from 'octokit'
 import { ref } from 'vue'
-import type { Github } from '@/types/github'
+import type { Github, HttpError } from '@/types/github'
 
 
 export const useOctokit = () => {
   const user = ref<Github>()
   const isLoading = ref(false)
-  const error = ref()
+  const error = ref<HttpError | null>()
 
   const octokit = new Octokit({
     auth: import.meta.env.GITHUB_AUTH_TOKEN
@@ -21,8 +21,10 @@ export const useOctokit = () => {
       user.value = res.data
       error.value = null
     } catch (e) {
-      console.log(e)
-      error.value = e
+      console.log(e instanceof Error)
+      error.value = e as HttpError
+
+      console.log({ e })
     } finally {
       isLoading.value = false
       console.log(user.value)

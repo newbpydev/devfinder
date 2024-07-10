@@ -32,3 +32,50 @@ export interface Github {
   created_at: string;
   updated_at: string | null;
 }
+
+export interface HttpError {
+  name: string;
+  status: number;
+  request: Request;
+  response: Response;
+}
+
+export interface Request {
+  method: string;
+  url: string;
+  headers: RequestHeaders;
+  request: RequestRequest;
+}
+
+export interface RequestHeaders {
+  accept: string;
+  'user-agent': string;
+}
+
+export interface RequestRequest {
+}
+
+export interface Response {
+  url: string;
+  status: number;
+  headers: ResponseHeaders;
+  data: Data;
+}
+
+export interface Data {
+  message: string;
+  documentation_url: string;
+  status: string;
+}
+
+export interface ResponseHeaders {
+  'content-length': string;
+  'content-type': string;
+  'x-github-media-type': string;
+  'x-github-request-id': string;
+  'x-ratelimit-limit': string;
+  'x-ratelimit-remaining': string;
+  'x-ratelimit-reset': string;
+  'x-ratelimit-resource': string;
+  'x-ratelimit-used': string;
+}

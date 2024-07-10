@@ -15,8 +15,8 @@ const { user } = defineProps<{
 console.log({ user })
 
 const defaultBioDesc =
-  // 'This profile has no bio'
-  'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
+  'This profile has no bio'
+// 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
   console.log(!!user?.created_at)
