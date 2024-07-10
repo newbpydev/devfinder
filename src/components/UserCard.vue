@@ -132,6 +132,10 @@ const joinedDate = computed(() => {
     gap: 1.9rem;
     margin-bottom: 3.3rem;
 
+    @media (min-width: 48em) {
+      margin-bottom: 2.4rem;
+    }
+
     & .avatar {
       display: block;
       width: 7rem;
@@ -146,6 +150,10 @@ const joinedDate = computed(() => {
     & .info {
       & .user-name {
         margin-bottom: 0.6rem;
+
+        @media (min-width: 48em) {
+          margin-bottom: .4rem;
+        }
 
         & h1 {
           font-size: 1.6rem;
@@ -180,6 +188,10 @@ const joinedDate = computed(() => {
     & .bio {
       line-height: 2.5rem;
       margin-bottom: 2.7rem;
+
+      @media (min-width: 48em) {
+        margin-bottom: 3.2rem;
+      }
     }
 
     & .stats {
@@ -191,28 +203,66 @@ const joinedDate = computed(() => {
       padding: 1.85rem 1.45rem;
       margin-bottom: 2.7rem;
 
+      @media (min-width: 48em) {
+        padding: 1.6rem 3.2rem;
+        justify-content: normal;
+        text-align: left;
+        margin-bottom: 3rem;
+      }
+
       & .stat {
         display: flex;
         flex-direction: column;
         gap: 0.8rem;
 
+        @media (min-width: 48em) {
+          &:first-child {
+            margin-right: 10rem;
+          }
+
+          &:last-child {
+            margin-left: 8.2rem;
+          }
+        }
+
         span {
           font-size: 1.1rem;
+
+          @media (min-width: 48em) {
+            font-size: 1.3rem;
+          }
         }
 
         h2 {
           color: var(--color-heading);
           font-weight: bold;
           font-size: 1.6rem;
+
+          @media (min-width: 48em) {
+            font-size: 2.2rem;
+          }
         }
       }
     }
   }
 
   & .footer {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: dense;
     gap: 1.6rem;
+
+    @media (min-width: 48em) {
+      grid-template-columns: repeat(2, 1fr);
+
+      & > *:nth-child(2) {
+        grid-column: 1;
+      }
+
+      & > *:nth-child(4) {
+        grid-column: 2;
+      }
+    }
 
     & .link {
       display: flex;

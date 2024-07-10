@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit'
-import { onMounted, onUpdated, ref } from 'vue'
+import { ref } from 'vue'
 import type { Github } from '@/types/github'
 
 
@@ -27,15 +27,6 @@ export const useOctokit = () => {
       console.log(user.value)
     }
   }
-
-  onMounted(async () => {
-    // await getUser('newbpydev')
-  })
-
-  onUpdated(() => {
-    console.log('on updated 💥')
-    console.log(user.value)
-  })
 
   return { getUser, user, isLoading, error }
 }
