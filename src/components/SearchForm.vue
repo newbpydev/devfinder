@@ -46,6 +46,10 @@ const handleSubmit = async () => {
     margin-bottom: 2.4rem;
   }
 
+  @media (min-width: 90em) {
+
+  }
+
   & .search-form__icon {
     display: inline-block;
     height: 2rem;

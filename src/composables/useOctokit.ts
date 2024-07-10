@@ -19,6 +19,7 @@ export const useOctokit = () => {
         username: username
       })
       user.value = res.data
+      error.value = null
     } catch (e) {
       console.log(e)
       error.value = e

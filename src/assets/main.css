@@ -4,57 +4,8 @@
 
 #app {
     padding: var(--padding-container);
+
+    @media (min-width: 90em) {
+        padding: 0;
+    }
 }
-
-
-/*#app {*/
-/*    max-width: 32.7rem;*/
-/*    margin: 3.1rem 2.4rem 8rem;*/
-/*}*/
-
-/*@media (min-width: 48em) {*/
-/*    #app {*/
-/*        max-width: 57.3rem;*/
-/*    }*/
-
-/*}*/
-
-/*@media (min-width: 90em) {*/
-/*    #app {*/
-/*        max-width: 73rem;*/
-/*    }*/
-/*}*/
-
-/*#app {*/
-/*    max-width: 1280px;*/
-/*    margin: 0 auto;*/
-/*    padding: 2rem;*/
-/*    font-weight: normal;*/
-/*}*/
-
-/*a,*/
-/*.green {*/
-/*    text-decoration: none;*/
-/*    color: hsla(160, 100%, 37%, 1);*/
-/*    transition: 0.4s;*/
-/*    padding: 3px;*/
-/*}*/
-
-/*@media (hover: hover) {*/
-/*    a:hover {*/
-/*        background-color: hsla(160, 100%, 37%, 0.2);*/
-/*    }*/
-/*}*/
-
-/*@media (min-width: 1024px) {*/
-/*    body {*/
-/*        display: flex;*/
-/*        place-items: center;*/
-/*    }*/
-
-/*    #app {*/
-/*        display: grid;*/
-/*        grid-template-columns: 1fr 1fr;*/
-/*        padding: 0 2rem;*/
-/*    }*/
-/*}*/
