@@ -7,7 +7,6 @@ import TwitterIcon from '@/assets/images/icon-twitter.svg'
 import CompanyIcon from '@/assets/images/icon-company.svg'
 import type { Github } from '@/types/github'
 
-// const { user } = useOctokit()
 
 const { user } = defineProps<{
   user: Ref<Github | undefined>
@@ -194,7 +193,5 @@ const joinedDate = computed(() => {
       }
     }
   }
-
 }
-
 </style>

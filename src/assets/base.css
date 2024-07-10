@@ -53,9 +53,10 @@
 }
 
 /* 768px */
-@media (min-width: 45em) {
+@media (min-width: 48em) {
     :root {
         --font-size: 15px;
+        --padding-container: 14rem 9.75rem
     }
 }
 

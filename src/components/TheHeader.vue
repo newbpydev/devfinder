@@ -49,8 +49,13 @@ defineEmits<{
 
 
     & span {
+      font-size: 1.3rem;
       letter-spacing: 2.5px;
       transition: all .2s ease;
+
+      @media (min-width: 48em) {
+
+      }
     }
 
     &:hover {

@@ -16,7 +16,7 @@ const handleSubmit = async () => {
 
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <img alt="search icon" class="search-form__img" src="/images/icon-search.svg">
+    <img alt="search icon" class="search-form__icon" src="/images/icon-search.svg">
     <input v-model="userName" class="search-form__input" placeholder="Search GitHub username..." type="text">
     <button class="search-form__btn" type="submit">Search</button>
   </form>
@@ -33,26 +33,33 @@ const handleSubmit = async () => {
   box-shadow: 0 16px 30px -10px rgb(0, 0, 0, .25);
 
   @media (min-width: 48em) {
+    padding: .95rem 1rem .95rem 3.2rem;
     margin-bottom: 2.4rem;
   }
 
-  & .search-form__img {
+  & .search-form__icon {
     display: inline-block;
     height: 2rem;
+    width: auto;
     margin-right: .9rem;
 
     @media (min-width: 48em) {
       height: 2.4rem;
+      margin-right: 2.4rem;
     }
   }
 
   & .search-form__input {
-    width: 18.4rem;
+    width: 100%;
     line-height: 2.5;
-    margin-right: auto;
+    margin-right: .7rem;
 
     &:focus {
       outline: none;
+    }
+
+    @media (min-width: 48em) {
+      font-size: 1.8rem;
     }
   }
 
@@ -68,6 +75,11 @@ const handleSubmit = async () => {
 
     &:hover {
       background-color: #60ABFF;
+    }
+
+    @media (min-width: 48em) {
+      font-size: 1.6rem;
+      padding: 1.3rem 2.4rem;
     }
   }
 }
