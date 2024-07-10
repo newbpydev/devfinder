@@ -48,6 +48,7 @@
         --color-foreground: var(--color-surface-dark);
         --color-logo: var(--color-logo-dark);
         --color-heading: var(--color-heading-dark);
+        --color-date: var(--color-text-white);
     }
 }
 
@@ -68,6 +69,7 @@ body {
     --color-foreground: var(--color-surface-light);
     --color-logo: var(--color-logo-light);
     --color-heading: var(--color-heading-light);
+    --color-date: var(--color-secondary);
 
     min-height: 100vh;
     font-family: "Space Mono", monospace;
@@ -80,7 +82,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 
     & input {
         color: var(--color-logo-light);
@@ -100,6 +102,7 @@ body:has(main.dark-mode) {
     --color-foreground: var(--color-surface-dark);
     --color-logo: var(--color-logo-dark);
     --color-heading: var(--color-heading-dark);
+    --color-date: var(--color-text-white);
 
     /*background-color: var(--color-background);*/
     /*color: var(--color-text-white);*/
