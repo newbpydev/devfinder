@@ -15,6 +15,7 @@ const { user } = defineProps<{
 console.log({ user })
 
 const defaultBioDesc =
+  // 'This profile has no bio'
   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
@@ -126,6 +127,10 @@ const joinedDate = computed(() => {
     padding: 4rem;
   }
 
+  @media (min-width: 90em) {
+    padding: 4.8rem 4.8rem 4.8rem 20.2rem;
+  }
+
   & .header {
     display: flex;
     align-items: center;
@@ -134,6 +139,10 @@ const joinedDate = computed(() => {
 
     @media (min-width: 48em) {
       margin-bottom: 2.4rem;
+    }
+
+    @media (min-width: 90em) {
+      margin-bottom: 2rem;
     }
 
     & .avatar {
@@ -145,15 +154,29 @@ const joinedDate = computed(() => {
       @media (min-width: 48em) {
         width: 11.7rem;
       }
+
+      @media (min-width: 90em) {
+        position: absolute;
+        left: 4.8rem;
+        top: 4.8rem;
+      }
     }
 
     & .info {
+
+      @media (min-width: 90em) {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
       & .user-name {
         margin-bottom: 0.6rem;
 
         @media (min-width: 48em) {
           margin-bottom: .4rem;
         }
+
 
         & h1 {
           font-size: 1.6rem;
@@ -162,6 +185,11 @@ const joinedDate = computed(() => {
 
           @media (min-width: 48em) {
             font-size: 2.6rem;
+            margin-bottom: .1rem;
+          }
+
+          @media (min-width: 90em) {
+            margin-bottom: .2rem;
           }
         }
 
@@ -177,8 +205,8 @@ const joinedDate = computed(() => {
       & .created-date {
         color: var(--color-date);
 
-        @media (min-width: 48em) {
-
+        @media (min-width: 90em) {
+          margin-top: .8rem;
         }
       }
     }
@@ -208,6 +236,10 @@ const joinedDate = computed(() => {
         justify-content: normal;
         text-align: left;
         margin-bottom: 3rem;
+      }
+
+      @media (min-width: 90em) {
+        margin-bottom: 3.7rem;
       }
 
       & .stat {
@@ -254,6 +286,7 @@ const joinedDate = computed(() => {
 
     @media (min-width: 48em) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.9rem;
 
       & > *:nth-child(2) {
         grid-column: 1;
@@ -273,6 +306,7 @@ const joinedDate = computed(() => {
         text-decoration: underline;
       }
 
+
       &.unavailable {
         opacity: 0.5;
 
@@ -282,5 +316,12 @@ const joinedDate = computed(() => {
       }
     }
   }
+}
+
+</style>
+
+<style>
+body:has(main.dark-mode) .link svg * {
+  fill: var(--color-text-white);
 }
 </style>
