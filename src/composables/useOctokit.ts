@@ -1,10 +1,10 @@
 import { Octokit } from 'octokit'
 import { ref } from 'vue'
 import type { Github, HttpError } from '@/types/github'
-
+import { DEFAULT_USER } from '@/data'
 
 export const useOctokit = () => {
-  const user = ref<Github>()
+  const user = ref<Github>(DEFAULT_USER)
   const isLoading = ref(false)
   const error = ref<HttpError | null>()
 

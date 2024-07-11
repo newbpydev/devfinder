@@ -12,10 +12,7 @@ const { user } = defineProps<{
   // user: Ref<Github | undefined>
 }>()
 
-console.log({ user })
-
-const defaultBioDesc =
-  'This profile has no bio'
+const defaultBioDesc = 'This profile has no bio'
 // 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
@@ -33,7 +30,6 @@ const joinedDate = computed(() => {
     const day = formattedDate[1]
     const month = formattedDate[0]
     const year = formattedDate[2]
-    console.log(day, month, year)
     return `${day} ${month} ${year}`
   } else {
     return null
@@ -49,6 +45,7 @@ const joinedDate = computed(() => {
         :src="user.avatar_url ?? ''"
         :title="user.name ?? ''"
         class="avatar"
+        fetchpriority="high"
       />
 
       <div class="info">
@@ -96,7 +93,7 @@ const joinedDate = computed(() => {
       </a>
       <a
         :class="['link', !user.twitter_username ? 'unavailable' : '']"
-        :href="user.twitter_username ? `https://www.twitter.com/${user.twitter_username}`: '#'"
+        :href="user.twitter_username ? `https://www.twitter.com/${user.twitter_username}` : '#'"
         target="_blank"
       >
         <!--      <a  :href="user.twitter_username ? `https:` : '#'" :class="['link', !user.location ? 'unavailable' : '' ]">-->
@@ -163,7 +160,6 @@ const joinedDate = computed(() => {
     }
 
     & .info {
-
       @media (min-width: 90em) {
         display: flex;
         justify-content: space-between;
@@ -174,9 +170,8 @@ const joinedDate = computed(() => {
         margin-bottom: 0.6rem;
 
         @media (min-width: 48em) {
-          margin-bottom: .4rem;
+          margin-bottom: 0.4rem;
         }
-
 
         & h1 {
           font-size: 1.6rem;
@@ -185,11 +180,11 @@ const joinedDate = computed(() => {
 
           @media (min-width: 48em) {
             font-size: 2.6rem;
-            margin-bottom: .1rem;
+            margin-bottom: 0.1rem;
           }
 
           @media (min-width: 90em) {
-            margin-bottom: .2rem;
+            margin-bottom: 0.2rem;
           }
         }
 
@@ -206,7 +201,7 @@ const joinedDate = computed(() => {
         color: var(--color-date);
 
         @media (min-width: 90em) {
-          margin-top: .8rem;
+          margin-top: 0.8rem;
         }
       }
     }
@@ -310,7 +305,6 @@ const joinedDate = computed(() => {
         width: 2rem;
       }
 
-
       &.unavailable {
         opacity: 0.5;
 
@@ -321,7 +315,6 @@ const joinedDate = computed(() => {
     }
   }
 }
-
 </style>
 
 <style>
