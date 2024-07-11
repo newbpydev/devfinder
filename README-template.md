@@ -10,6 +10,7 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [The challenge](#the-challenge)
+    - [Lighthouse Score](#lighthouse-score)
     - [Screenshot](#screenshot)
     - [Links](#links)
   - [My process](#my-process)
@@ -19,8 +20,6 @@ This is a solution to the [GitHub user search app challenge on Frontend Mentor](
     - [Useful resources](#useful-resources)
   - [Author](#author)
   - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -35,17 +34,19 @@ Users should be able to:
 - Switch between light and dark themes
 - **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 
+### Lighthouse Score
+
+![lighthouse score](./src/assets/images/screenshots/lighthouse-score.png)
+
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![desktop screenshot dark](./src/assets/images/screenshots/desktop-screenshot-dark.png)
+![desktop screenshot hover](./src/assets/images/screenshots/desktop-screenshot-hover.png)
+![desktop screenshot light](./src/assets/images/screenshots/desktop-screenshot-light.png)
+![tablet screenshot dark](./src/assets/images/screenshots/tablet-screenshot-dark.png)
+![tablet screenshot light](./src/assets/images/screenshots/tablet-screenshot-light.png)
+![mobile screenshot dark](./src/assets/images/screenshots/mobile-screenshot-dark.png)
+![mobile screenshot light](./src/assets/images/screenshots/mobile-screenshot-light.png)
 
 ### Links
 
@@ -61,50 +62,80 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Vue](https://vuejs.org/) - JS Framework
+- [Octokit](https://github.com/octokit/octokit.js) - GitHub API
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+For this project, I chose to adopt a pure CSS approach, leveraging modern selectors like :has(). This proved particularly useful for managing dark-mode styles. Additionally, I experimented with the prefers-color-scheme media query for the first time, which allowed me to apply custom dark-mode styles based on the user's system preferences.
 
-To see how you can add code snippets, see below:
+Moreover, I decided to revisit the Vue framework, as it had been a while since my last project with it. This experience has been remarkably insightful and enriching, offering me a deeper understanding of both CSS and Vue.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<!-- Here I am using the Nullish coalescing operator (??) -->
+<img
+  :alt="`avatar of ${user.name}`"
+  :src="user.avatar_url ?? ''"
+  :title="user.name ?? ''"
+  class="avatar"
+  fetchpriority="high"
+/>
 ```
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-white);
+    --color-foreground: var(--color-surface-dark);
+    --color-logo: var(--color-logo-dark);
+    --color-heading: var(--color-heading-dark);
+    --color-date: var(--color-text-white);
+  }
 }
 ```
 
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+// getting the prefers-color-scheme so I could use it in my code
+const isDark = ref(false)
+
+onMounted(async () => {
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+  isDark.value = mediaQuery.matches
+})
+
+// I needed to format the date to a specific style,
+// sso I used the DateTimeFormat method from the Intl namespace
+const joinedDate = computed(() => {
+  if (user) {
+    const date = new Date(user.created_at)
+    const formattedDate = new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    })
+      .format(date)
+      .replace(',', '')
+      .split(' ')
+    const day = formattedDate[1]
+    const month = formattedDate[0]
+    const year = formattedDate[2]
+    return `${day} ${month} ${year}`
+  } else {
+    return null
+  }
+})
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+During this project, I utilized several new methods for solving problems, such as nullish coalescing, Vue's composables, and gaining a deeper understanding of the internal workings of the Vue framework. Moving forward, I plan to work on additional projects to further solidify my grasp of these concepts and enhance my proficiency.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Nullish Coalescing Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) - The nullish coalescing (??) operator is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+- [Vue Composables](https://vuejs.org/guide/reusability/composables.html) - In the context of Vue applications, a "composable" is a function that leverages Vue's Composition API to encapsulate and reuse stateful logic.
+- [First Contentful Paint (FCP)](https://web.dev/articles/fcp) - First Contentful Paint (FCP) measures the time from when the user first navigated to the page to when any part of the page's content is rendered on the screen.
 
 ## Author
 
@@ -114,5 +145,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-The code may not be perfect compared to my sensei @jonasschmedtman but I need to thank him because he has shown me the ropes and now I am a confident web
-designer. Another important instructor is @MaximilianSchwarzmüller in Udemy.
+While my code may not yet be on par with my mentor @jonasschmedtman, I am incredibly grateful for his guidance, which has significantly boosted my confidence as a web designer. Additionally, I would like to thank @MaximilianSchwarzmüller from Udemy for his invaluable instruction and support.

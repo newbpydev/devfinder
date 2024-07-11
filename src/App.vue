@@ -11,7 +11,6 @@ const { getUser, user, isLoading, error } = useOctokit()
 onMounted(async () => {
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   isDark.value = mediaQuery.matches
-  // await getUser('octocat')
 })
 
 const handleThemeChange = () => {
