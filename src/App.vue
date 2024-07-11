@@ -33,6 +33,8 @@ const handleSearch = async (name: string) => {
 
 <style scoped>
 .main {
+  margin: 0 auto;
+
   @media (min-width: 90em) {
     margin-top: 5rem;
     margin-bottom: 14.5rem;
