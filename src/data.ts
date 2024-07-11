@@ -4,7 +4,7 @@ export const DEFAULT_USER: Github = {
   login: 'octocat',
   id: 583231,
   node_id: 'MDQ6VXNlcjU4MzIzMQ==',
-  avatar_url: '/images/avatar.png',
+  avatar_url: '/images/avatar.webp',
   // 'avatar_url': 'https://avatars.githubusercontent.com/u/583231?v=4',
   gravatar_id: '',
   url: 'https://api.github.com/users/octocat',
