@@ -1,5 +1,6 @@
 .container {
     max-width: 32.7rem;
+    min-width: 32.7rem;
 
     @media (min-width: 48em) {
         max-width: 57.3rem;
