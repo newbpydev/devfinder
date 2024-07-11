@@ -32,7 +32,9 @@ const handleSubmit = async () => {
     />
     <span v-if="error" class="error-message">{{ error.status === 404 ? 'No results' : '' }}</span>
 
-    <button :disabled="isLoading" class="search-form__btn" type="submit"> {{ isLoading ? 'Loading' : 'Search' }}
+    <button :disabled="isLoading" class="search-form__btn"
+            type="submit">
+      {{ isLoading ? 'Loading' : 'Search' }}
     </button>
   </form>
 </template>
@@ -112,6 +114,11 @@ const handleSubmit = async () => {
 
     &:hover {
       background-color: #60abff;
+    }
+
+    &:disabled {
+      background-color: #60abff;
+      cursor: wait;
     }
 
     @media (min-width: 48em) {

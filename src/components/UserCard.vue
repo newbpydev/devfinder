@@ -96,7 +96,7 @@ const joinedDate = computed(() => {
       </a>
       <a
         :class="['link', !user.twitter_username ? 'unavailable' : '']"
-        :href="user.twitter_username ?? '#'"
+        :href="user.twitter_username ? `https://www.twitter.com/${user.twitter_username}`: '#'"
         target="_blank"
       >
         <!--      <a  :href="user.twitter_username ? `https:` : '#'" :class="['link', !user.location ? 'unavailable' : '' ]">-->
@@ -105,7 +105,7 @@ const joinedDate = computed(() => {
       </a>
       <a
         :class="['link', !user.company ? 'unavailable' : '']"
-        :href="user.html_url ?? '#'"
+        :href="user.company ?? '#'"
         target="_blank"
       >
         <CompanyIcon />
@@ -304,6 +304,10 @@ const joinedDate = computed(() => {
 
       &:hover {
         text-decoration: underline;
+      }
+
+      & > svg {
+        width: 2rem;
       }
 
 

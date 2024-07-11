@@ -12,12 +12,10 @@ onMounted(async () => {
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
   isDark.value = mediaQuery.matches
   await getUser('octocat')
-
 })
 
 onUpdated(() => {
   console.log(error)
-
 })
 
 const handleThemeChange = () => {
@@ -39,6 +37,9 @@ const handleSearch = async (name: string) => {
 
 <style scoped>
 .main {
-  margin: 0 auto;
+  @media (min-width: 90em) {
+    margin-top: 5rem;
+    margin-bottom: 14.5rem;
+  }
 }
 </style>

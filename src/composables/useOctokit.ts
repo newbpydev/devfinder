@@ -15,19 +15,19 @@ export const useOctokit = () => {
   const getUser = async (username: string) => {
     try {
       isLoading.value = true
+      if (!username) {
+        throw new Error('username can not be empty')
+      }
+
       const res = await octokit.request('GET /users/{username}/', {
         username: username
       })
       user.value = res.data
       error.value = null
     } catch (e) {
-      console.log(e instanceof Error)
       error.value = e as HttpError
-
-      console.log({ e })
     } finally {
       isLoading.value = false
-      console.log(user.value)
     }
   }
 
