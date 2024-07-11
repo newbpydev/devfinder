@@ -2,7 +2,7 @@
 import TheHeader from '@/components/TheHeader.vue'
 import SearchForm from '@/components/SearchForm.vue'
 import UserCard from '@/components/UserCard.vue'
-import { onMounted, onUpdated, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useOctokit } from '@/composables/useOctokit'
 
 const isDark = ref(false)
@@ -35,7 +35,7 @@ const handleSearch = async (name: string) => {
   margin: 0 auto;
 
   @media (min-width: 90em) {
-    margin-top: 5rem;
+    margin-top: 14.5rem;
     margin-bottom: 14.5rem;
   }
 }
