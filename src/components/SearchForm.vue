@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import type { HttpError } from '@/types/github'
 
 defineProps<{
-  isLoading: boolean,
+  isLoading: boolean
   error: HttpError | null | undefined
 }>()
 
@@ -14,7 +14,6 @@ const emit = defineEmits<{
 const userName = ref()
 
 const handleSubmit = async () => {
-  // await getUser(userName.value)
   emit('search', userName.value)
 }
 </script>
@@ -22,7 +21,6 @@ const handleSubmit = async () => {
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
     <img alt="search icon" class="search-form__icon" src="/images/icon-search.svg" />
-
 
     <input
       v-model="userName"
@@ -32,8 +30,7 @@ const handleSubmit = async () => {
     />
     <span v-if="error" class="error-message">{{ error.status === 404 ? 'No results' : '' }}</span>
 
-    <button :disabled="isLoading" class="search-form__btn"
-            type="submit">
+    <button :disabled="isLoading" class="search-form__btn" type="submit">
       {{ isLoading ? 'Loading' : 'Search' }}
     </button>
   </form>
@@ -56,7 +53,6 @@ const handleSubmit = async () => {
   }
 
   @media (min-width: 90em) {
-
   }
 
   & .search-form__icon {
@@ -76,7 +72,6 @@ const handleSubmit = async () => {
     line-height: 2.5;
     margin-right: 0.7rem;
     z-index: 2;
-
 
     &:focus {
       outline: none;

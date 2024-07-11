@@ -9,7 +9,6 @@ import type { Github } from '@/types/github'
 
 const { user } = defineProps<{
   user: Github | undefined
-  // user: Ref<Github | undefined>
 }>()
 
 const defaultBioDesc = 'This profile has no bio'
@@ -96,7 +95,6 @@ const joinedDate = computed(() => {
         :href="user.twitter_username ? `https://www.twitter.com/${user.twitter_username}` : '#'"
         target="_blank"
       >
-        <!--      <a  :href="user.twitter_username ? `https:` : '#'" :class="['link', !user.location ? 'unavailable' : '' ]">-->
         <TwitterIcon />
         <span>{{ user.twitter_username ?? notAvailable }}</span>
       </a>
