@@ -15,7 +15,6 @@ const defaultBioDesc = 'This profile has no bio'
 // 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.'
 const notAvailable = 'Not Available'
 const joinedDate = computed(() => {
-  console.log(!!user?.created_at)
   if (user) {
     const date = new Date(user.created_at)
     const formattedDate = new Intl.DateTimeFormat('en-US', {
